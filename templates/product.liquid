@@ -66,6 +66,22 @@
         ],
         fallback_product_image: "{{ featured_image | img_url: '500x', scale: 2 }}"
       }
+    },
+    methods: {
+      variant_from_options() {
+        const variant = this.variants.find((variant) +> {
+          var match = true;
+          if(variant.option1 != "") {
+            match = variant.option1 == this.variant_selection.option1
+          }
+          if(variant.option2 != "") {
+            match = variant.option1 == this.variant_selection.option2
+          }
+          if(variant.option3 != "") {
+            match = variant.option1 == this.variant_selection.option3
+          }
+        })
+      }
     }
   }
 
