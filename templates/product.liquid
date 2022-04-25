@@ -12,16 +12,19 @@
     {% if product.variants.size > 1 %}
       <div class="variant-select">
         {% for product_option in product.options_with_values %}
+
           <label for="{{ product_option.name }}">
             {{ product_option.name }}
           </label>
-          <select id="{{ product_option.name }}">
+
+          <select id="{{ product_option.name }}" v-model="variant_selection_option{{ product_option.position }}">
             {% for value in product_option.values %}
               <option {% if product_option.selected_value == value %}selected{% endif %}>
                 {{ value }}
               </option>
             {% endfor %}
           </select>
+
         {% endfor %}
       </div>
     {% endif %}
