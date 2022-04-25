@@ -17,7 +17,7 @@
             {{ product_option.name }}
           </label>
 
-          <select id="{{ product_option.name }}" v-model="variant_selection.option{{ product_option.position }}">
+          <select id="{{ product_option.name }}" v-model="variant_selection.option{{ product_option.position }}" @change="variant_from_options">
             {% for value in product_option.values %}
               <option {% if product_option.selected_value == value %}selected{% endif %}>
                 {{ value }}
@@ -82,6 +82,7 @@
           }
           return match;
         })
+        this.current_variant_id = variant_id;
       }
     }
   }
