@@ -71,14 +71,14 @@
       variant_from_options() {
         const variant = this.variants.find((variant) => {
           var match = true;
-          if(variant.option1 != "") {
+          if(variant.option1 != '') {
             match = variant.option1 == this.variant_selection.option1
           }
-          if(variant.option2 != "") {
-            match = variant.option1 == this.variant_selection.option2
+          if(match && variant.option2 != '') {
+            match = variant.option2 == this.variant_selection.option2
           }
-          if(variant.option3 != "") {
-            match = variant.option1 == this.variant_selection.option3
+          if(match && variant.option3 != '') {
+            match = variant.option3 == this.variant_selection.option3
           }
           return match;
         })
