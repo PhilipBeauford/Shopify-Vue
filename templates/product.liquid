@@ -69,7 +69,7 @@
     },
     methods: {
       variant_from_options() {
-        const variant = this.variants.find((variant) +> {
+        const variant = this.variants.find((variant) => {
           var match = true;
           if(variant.option1 != "") {
             match = variant.option1 == this.variant_selection.option1
