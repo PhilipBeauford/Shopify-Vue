@@ -77,7 +77,7 @@
       $.get('/cart.js')
       .then(response => JSON.parse(response))
       .then(cart => {
-        this.set_cart(cart)
+        this.set_cart(cart) 
       })
     },
     methods: {
@@ -89,7 +89,7 @@
         $.post('/cart/update.js', `updates[${id}]=${qty}`)
         .then(response => JSON.parse(response))
         .then(cart => {
-          this.set_cart(cart)
+          this.set_cart(cart) 
         })
       },
       format_prices() {
