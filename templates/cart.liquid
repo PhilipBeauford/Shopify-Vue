@@ -78,6 +78,7 @@
       .then(response => JSON.parse(response))
       .then(cart => {
         this.cart = cart;
+        this.format_prices() 
       })
     },
     methods: {
@@ -86,7 +87,14 @@
         .then(response => JSON.parse(response))
         .then(cart => {
           this.cart =cart;
+          this.format_prices() 
         })
+      },
+      format_prices() {
+        this.cart.items.format_prices(item => {
+          item.formatted_line_price = Shopify.formatMoney(item.line_price);
+        })
+        this.cart.formatted_total_price = Shopify.formatMoney(this.cart.total_price);
       }
     }
   }
