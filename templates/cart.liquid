@@ -91,7 +91,7 @@
         })
       },
       format_prices() {
-        this.cart.items.format_prices(item => {
+        this.cart.items.forEach(item => {
           item.formatted_line_price = Shopify.formatMoney(item.line_price);
         })
         this.cart.formatted_total_price = Shopify.formatMoney(this.cart.total_price);
