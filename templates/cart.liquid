@@ -4,7 +4,8 @@
     <div class="cart-table">
       
         
-          {% if cart.items.size > 0 %}
+
+          <template v-if="cart.items.length > 0">
             {% for item in cart.items %}
               <div class="cart-row">
                 <div class="cart-item-title">{{ item.title }}</div>
@@ -19,9 +20,11 @@
                 <div class="cart-item-remove"><img src="{{ 'icon-trash.svg' | asset_url }}"></div>
               </div>
             {% endfor %}
-          {% else %}
+          </template>
+          
+          <template v-else>
             Your cart is currently empty
-          {% endif %}
+          </template>
       
     </div>
 
