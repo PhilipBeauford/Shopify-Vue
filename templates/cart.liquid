@@ -8,7 +8,7 @@
           <template v-if="cart.items.length > 0">
            
               <div class="cart-row" v-for="item in cart.items">
-                <div class="cart-item-title">{{ item.title }}</div>
+                <div class="cart-item-title" v-html="item.title"></div>
                 <img src="{{ item.image | img_url: '400x', scale: 2 }} }}">
                 <div>
                   <div class="cart-item-price">{{ item.final_line_price | money }}</div>
