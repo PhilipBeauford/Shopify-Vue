@@ -79,6 +79,15 @@
       .then(cart => {
         this.cart = cart;
       })
+    },
+    methods: {
+      update_cart(id, qty) {
+        $.post('/cart/update.js', `updates[${id}]=${qty}`)
+        .then(response => JSON.parse(response))
+        .then(cart => {
+          this.cart =cart;
+        })
+      }
     }
   }
 
