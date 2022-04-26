@@ -17,7 +17,7 @@
                     Qty
                     <input type="number" class="cart-item-qty" value="{{ item.quantity }}">
                   </label>
-                  <div :src="item.vendor"></div>
+                  <div v-html="item.vendor"></div>
                 </div>
                 <div class="cart-item-remove"><img src="{{ 'icon-trash.svg' | asset_url }}"></div>
               </div>
