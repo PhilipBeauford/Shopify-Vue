@@ -31,7 +31,7 @@
     <div class="cart-sidebar">
       <div class="cart-sidebar-top">
         <h2>Your total</h2>
-        <div class="cart-total">{{ cart.total_price | money }}</div>
+        <div class="cart-total" v-html="cart.total_price"></div>
       </div>
       <a href="/checkout" class="checkout-btn">
         Checkout
@@ -39,6 +39,9 @@
     </div>
   </div>
 
+
+
+  <!-- Upsells -->
   {% if collections['shoes'].products.size > 0 %}
     <div class="cart-upsells">
       <h2>You might also like...</h2>
