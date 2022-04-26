@@ -10,14 +10,12 @@
               <div class="cart-row" v-for="item in cart.items">
                 <div class="cart-item-title" v-html="item.title"></div>
                 <img :src="item.image">
-                <div v-html="item.vendor"></div>
                 <div>
                   <div class="cart-item-price">{{ item.final_line_price | money }}</div>
                   <label>
                     Qty
                     <input type="number" class="cart-item-qty" value="{{ item.quantity }}">
                   </label>
-                  
                 </div>
                 <div class="cart-item-remove"><img src="{{ 'icon-trash.svg' | asset_url }}"></div>
               </div>
