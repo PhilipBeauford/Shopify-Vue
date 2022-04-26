@@ -9,7 +9,7 @@
            
               <div class="cart-row" v-for="item in cart.items">
                 <div class="cart-item-title" v-html="item.title"></div>
-                <img src="{{ item.image | img_url: '400x', scale: 2 }} }}">
+                <img :src="item.image">
                 <div>
                   <div class="cart-item-price">{{ item.final_line_price | money }}</div>
                   <label>
