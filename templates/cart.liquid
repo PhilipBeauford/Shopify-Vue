@@ -11,7 +11,7 @@
                 <div class="cart-item-title" v-html="item.title"></div>
                 <img :src="item.image">
                 <div>
-                  <div class="cart-item-price">{{ item.final_line_price | money }}</div>
+                  <div class="cart-item-price" v-html="item.final_line_price"></div>
                   <label>
                     Qty
                     <input type="number" class="cart-item-qty" v-model="item.quantity" @change="update_cart(item.variant_id, item.quantity)">
