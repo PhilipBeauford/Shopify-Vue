@@ -69,7 +69,7 @@
     },
     created() {
       $.get('/cart.js')
-      .then(response => JSON.parse(respone))
+      .then(response => JSON.parse(response))
       .then(cart => {
         this.cart = cart;
       })
