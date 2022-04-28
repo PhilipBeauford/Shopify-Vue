@@ -47,7 +47,7 @@
       <h2>You might also like...</h2>
       
         <div class="cart-upsells-grid" >
-          <template v-for="(upsell, index) in usells">
+          <template v-for="(upsell, index) in upsells">
             <div class="cart-upsell-item" v-if="index < 5">
               <div class="cart-upsell-title" v-html="upsell.title"></div>
               <img class="cart-upsell-item-image" :src="upsell.image">
