@@ -108,6 +108,20 @@
         })
         this.cart.formatted_total_price = Shopify.formatMoney(this.cart.total_price);
       },
+      add_to_cart(id) {
+        $.post('/cart/add.js', {
+          items: [
+            {
+              id,
+              quantity: 1
+            }
+          ]
+        })
+        .then(response => JSON.parse(response))
+        .then(item => {
+          console.log(item)
+        })
+      },
       remove_from_cart(id) {
         this.update_cart(id, 0);
       }
