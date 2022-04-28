@@ -85,6 +85,13 @@
     },
     created() {
       this.get_cart()
+      const products_in_cart = this.cart.items.map(item => item.product_id.toString());
+      console.log(products_in_cart)
+    },
+    computed: {
+      filtered_upsells() {
+        
+      }
     },
     methods: {
       get_cart() {
