@@ -84,13 +84,16 @@
       }
     },
     created() {
-      $.get('/cart.js')
+      this.get_cart()
+    },
+    methods: {
+      get_cart() {
+        $.get('/cart.js')
       .then(response => JSON.parse(response))
       .then(cart => {
         this.set_cart(cart);
       })
-    },
-    methods: {
+      },
       set_cart(cart) {
         this.cart = cart;
         this.format_prices() 
@@ -119,7 +122,7 @@
         })
         .then(response => JSON.parse(response))
         .then(items => {
-          console.log(items)
+          this.get_cart();
         })
       },
       remove_from_cart(id) {
