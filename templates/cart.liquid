@@ -48,7 +48,7 @@
       
         <div class="cart-upsells-grid" >
           <template v-for="(upsell, index) in upsells">
-            <div class="cart-upsell-item" v-if="index < 5">
+            <div class="cart-upsell-item" v-if="index < 4">
               <div class="cart-upsell-title" v-html="upsell.title"></div>
               <img class="cart-upsell-item-image" :src="upsell.image">
               <a class="cart-upsell-atc-btn">Add to cart</a>
