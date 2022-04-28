@@ -43,7 +43,7 @@
 
   <!-- Upsells -->
   
-    <div class="cart-upsells" v-if="upsells.length > 0">
+    <div class="cart-upsells" v-if="filtered_upsells.length > 0">
       <h2>You might also like...</h2>
       
         <div class="cart-upsells-grid" >
@@ -86,13 +86,13 @@
     created() {
       this.get_cart();
       setTimeout(() => {
-        const products_in_cart = this.cart.items.map(item => item.product_id.toString());
-        console.log(products_in_cart)
+        
       }, 2000);
     },
     computed: {
       filtered_upsells() {
-        
+        const products_in_cart = this.cart.items.map(item => item.product_id.toString());
+        return this.upsells.filter(upsell => !products_in_cart.includes(upsell.product_id))
       }
     },
     methods: {
