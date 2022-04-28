@@ -86,10 +86,9 @@
     created() {
       this.get_cart()
       setTimeout(() => {
-
+        const products_in_cart = this.cart.items.map(item => item.product_id.toString());
+        console.log(products_in_cart)
       }, 2000);
-      const products_in_cart = this.cart.items.map(item => item.product_id.toString());
-      console.log(products_in_cart)
     },
     computed: {
       filtered_upsells() {
