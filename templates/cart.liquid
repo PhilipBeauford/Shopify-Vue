@@ -122,7 +122,7 @@
         this.cart.formatted_total_price = Shopify.formatMoney(this.cart.total_price);
       },
       add_to_cart(id) {
-        const upsell - this.upsells.find(upsell => upsell.variant_id == id)
+        const upsell = this.upsells.find(upsell => upsell.variant_id == id)
         this.loading = true;
         upsell.adding_upsell = true;
         $.post('/cart/add.js', {
