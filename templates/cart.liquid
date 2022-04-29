@@ -78,10 +78,12 @@
               handle: "{{ product.handle }}",
               image: "{{ product.featured_image | img_url: '400x', scale: 2 }}",
               product_id: "{{ product.id }}",
-              variant_id: "{{ product.selected_or_first_available_variant.id }}"
+              variant_id: "{{ product.selected_or_first_available_variant.id }}",
+              adding_upsell: false
             },
           {% endfor %}
-        ]
+        ],
+        loading: true
       }
     },
     created() {
@@ -104,6 +106,7 @@
       set_cart(cart) {
         this.cart = cart;
         this.format_prices() 
+        this.loading= false;
       },
       update_cart(id, qty) {
         $.post('/cart/update.js', `updates[${id}]=${qty}`)
@@ -119,6 +122,9 @@
         this.cart.formatted_total_price = Shopify.formatMoney(this.cart.total_price);
       },
       add_to_cart(id) {
+        const upsell - this.upsells.find(upsell => upsell.variant_id == id)
+        this.loading = true;
+        upsell.adding_upsell = true;
         $.post('/cart/add.js', {
           items:[
             {
@@ -130,9 +136,11 @@
         .then(response => JSON.parse(response))
         .then(items => {
           this.get_cart();
+          upsell.adding_upsell = false;
         })
       },
       remove_from_cart(id) {
+        this.loading = true;
         this.update_cart(id, 0);
       }
     }
