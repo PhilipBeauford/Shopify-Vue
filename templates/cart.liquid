@@ -3,9 +3,9 @@
     
     <div class="cart-table">
       
-        
-
-          <template v-if="cart.items.length > 0">
+        <transition name="fade">
+          <div v-show="!loading">
+            <template v-if="cart.items.length > 0">
            
               <div class="cart-row" v-for="item in cart.items">
                 <div class="cart-item-title" v-html="item.title"></div>
@@ -25,6 +25,10 @@
           <template v-else>
             Your cart is currently empty
           </template>
+          </div>
+        </transition>
+
+          
       
     </div>
 
