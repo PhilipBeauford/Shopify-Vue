@@ -51,7 +51,7 @@
             <div class="cart-upsell-item" v-if="index < 4">
               <div class="cart-upsell-title" v-html="upsell.title"></div>
               <img class="cart-upsell-item-image" :src="upsell.image">
-              <a v-if="product.adding_upsell" class="cart-upsell-atc-btn cart-upsell-atc-btn--adding">Adding...</a>
+              <a v-if="upsell.adding_upsell" class="cart-upsell-atc-btn cart-upsell-atc-btn--adding">Adding...</a>
               <a v-else class="cart-upsell-atc-btn" @click="add_to_cart(upsell.variant_id)">Add to cart</a>
             </div>
           </template>
