@@ -64,7 +64,7 @@
             option3:  "{{ variant.option3 }}",
             price: "{{ variant.price | money }}",
             {% assign img_url = variant.image.src | img_url: '500x', scale: 2 %}
-            image: "{% unless img_url contains 'no-image %} {{ img_url }} {% endunless %}"
+            image: "{% unless img_url contains no-image %} {{ img_url }} {% endunless %}"
           },
           {% endfor %}
         ],
